@@ -1035,12 +1035,12 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
 /// Start a timer to fix the selection dot.
 - (void)_startSelectionDotFixTimer {
     [_selectionDotFixTimer invalidate];
-    _longPressTimer = [NSTimer timerWithTimeInterval:1/15.0
+    _selectionDotFixTimer = [NSTimer timerWithTimeInterval:1/15.0
                                               target:[YYTextWeakProxy proxyWithTarget:self]
                                             selector:@selector(_fixSelectionDot)
                                             userInfo:nil
                                              repeats:NO];
-    [[NSRunLoop currentRunLoop] addTimer:_longPressTimer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop currentRunLoop] addTimer:_selectionDotFixTimer forMode:NSRunLoopCommonModes];
 }
 
 /// End the timer.
